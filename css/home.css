@@ -1,0 +1,451 @@
+#hero{
+    height: 40em;
+    margin-top: 6em;
+    width: 100%;
+    background-image: url("../images/138A8101.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+#hero header {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  background: #1E1E1EE8;
+  padding: 2em;
+  text-align: center;
+  border-radius: 2em;
+  width: 50%;
+}
+#hero h1 {
+  color: #FAFAFA;
+  font-weight: lighter;
+  width: 12em;
+  margin: 0 auto;
+  padding-bottom: 0.5em;
+  line-height: 1.25em;
+}
+#hero hr {
+  background: #EEA9DA;
+  border: none;
+  height: 3px;
+  max-width: 22em;
+  margin: 0 auto;
+}
+#hero header a {
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1.33em;
+  margin-top: 1em;
+  display: inline-block;
+}
+@media(max-width:1000px){
+  #hero header{
+    width: 90%;
+    right auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 40em;
+  }
+}
+@media(max-width: 500px){
+  #hero h1{
+    width: 100%;
+  }
+}
+#video-tile{
+   width: 50%;
+   height: 35em;
+   background-image: url("../images/palm_image.jpg");
+   float: left;
+   background-position: top left;
+   background-size: cover;
+   position: relative;
+}
+.img-tile{
+  width: 50%;
+  height: 35em;
+}
+#img-tile-first{
+	background: url("../images/WBMPaina-9.jpg");
+    background-size: cover;
+    background-position: top center;
+	float: right;
+	clear: right;
+}
+#img-tile-second{
+	background: #9bc2ff;
+	float: left;
+    background: url("../images/IMG_6757.jpg");
+    background-size: cover;
+    background-position: center;
+}
+#reading-tile{
+	height: 35em;
+	background-image: url("../images/birdsofparadise-img.jpg");
+    background-size: cover;
+    background-position: center;
+	width: 50%;
+	float: right;
+	clear: none;
+    position: relative;
+}
+#reading-tile h3 {
+  color: white;
+  text-transform: capitalize;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1em;
+  font-size: 2em;
+  text-shadow: 0em 0em 1em #cc653a;
+}
+#reading-tile p {
+  color: white;
+  line-height: 2em;
+  text-shadow: 0em 0em 1em #cb6439;
+  margin: 1em auto;
+}
+#reading-tile button {
+  margin: 0 auto;
+  display: block;
+  background: #FAFAFA;
+  border: none;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  padding: 1em 2em;
+  border-radius: 2em;
+  color: #9D3124;
+}
+#reading-tile section{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 85%;
+}
+#video-tile section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
+#video-tile h2 {
+  color: white;
+  text-transform: capitalize;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1em;
+  font-size: 2em;
+  text-shadow: 0em 0em 1em #d07a79;
+  margin-bottom: 0.5em;
+}
+#video-tile h2 span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-size: 0.75em;
+}
+
+#video-player {
+  max-width: 16em;
+  height: 9em;
+  font-size: 1.75em;
+  width: 90%;
+}
+@media(max-width:850px){
+	#video-tile,
+  #reading-tile{
+    width: 100%;
+    height: auto;
+  }
+  #video-tile section,
+  #reading-tile section{
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    padding: 3em 0em;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  #img-tile-first,
+  #img-tile-second{
+    height: 25em;
+  }
+}
+/*===========================*/
+
+#luau-packages {
+  width: 100%;
+  display: table;
+  border: 0.5em solid white;
+}
+.luau-package {
+  display: table-cell;
+  width: 33.3%;
+  padding: 3em;
+  background-image: url("../images/hibiscus-background.png");
+  background-size: 20em;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+#show-only {
+  background-color: #FDC6BE;
+  border-right: 0.5em solid white;
+}
+#general-admission {
+  background-color: #FE9494;
+  border-right: 0.5em solid white;
+}
+#vip-seating {
+  background-color: #81A9AA;
+}
+
+.luau-package header {
+  text-transform: capitalize;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1em;
+  font-size: 2em;
+  font-family: 'Bodoni Moda', serif;
+}
+.luau-package hr {
+  max-width: 13em;
+  margin: 1em auto;
+  border: 0;
+  height: 3px;
+}
+.package-schedule {
+  text-align: center;
+  margin-bottom: 1em;
+  text-transform: capitalize;
+}
+.luau-package ul {
+  list-style-type: disc;
+  display: block;
+  list-style-position: inside;
+  width: 13em;
+  margin: 0 auto;
+}
+.package-price {
+  text-transform: capitalize;
+  margin-top: 2em;
+}
+.package-price span {
+  font-size: 2em;
+  text-align: left;
+}
+
+#show-only header {
+  color: #D96456;
+}
+#general-admission header {
+  color: #FAFAFA;
+}
+#vip-seating header {
+  color: #FAFAFA;
+}
+
+#show-only hr {
+  background: #d96456;
+}
+#general-admission hr {
+  background-color: #FDC6BE;
+}
+#vip-seating hr {
+  background: #EEA9DA;
+}
+#show-only ul,
+#show-only p{
+  color: #333;
+}
+#general-admission ul,
+#general-admission p{
+  color: #333;
+}
+#vip-seating ul,
+#vip-seating p{
+  color: white;
+}
+@media(max-width:1080px){
+  .luau-package {
+  padding: 3em 1.5em;
+  }
+   #luau-packages {
+    border: none;
+  }
+}
+@media(max-width:920px){
+  .luau-package {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+  #show-only{
+    border-right: none;
+    border-bottom: 0.5em solid white;
+    border-top: 0.5em solid white;
+  }
+  #general-admission {
+    border-right: none;
+    border-bottom: 0.5em solid white;
+  }
+  #vip-seating {
+    border-right: none;
+    border-bottom: 0.5em solid white;
+  }
+}
+/*===========*/
+
+#book-packages {
+  padding: 2em 0em;
+  text-align: center;
+}
+#book-packages a {
+  display: inline-block;
+  background-color: #333;
+  color: #d96456;
+  text-transform: capitalize;
+  padding: 0.5em 2em;
+  font-size: 1.5em;
+  border-radius: 2em;
+}
+/*======*/
+
+#seating {
+  display: table;
+  width: 100%;
+}
+#what-to-expect {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;
+  background: url("../images/palm_image_red.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  padding: 4em 2em;
+}
+#seating-tile {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #e8eedd;
+  padding: 2em;
+}
+#what-to-expect ul {
+  max-width: 20em;
+  margin: 0 auto;
+  text-align: left;
+  font-family: "montserrat";
+  color: white;
+  text-shadow: 0em 0em 1em #821b0f;
+  line-height: 1.5em;
+}
+#what-to-expect h3 {
+  color: #FAFAFA;
+  font-weight: lighter;
+  width: 12em;
+  margin: 0 auto;
+  padding-bottom: 0.5em;
+  line-height: 1.25em;
+  font-size: 2em;
+  text-shadow: 0em 0em 1em #e87365;
+}
+#seating-tile img {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+@media(max-width:1060px){
+  #what-to-expect,
+  #seating-tile{
+    width: 100%;
+    display: block;
+  }
+}
+#misc-first,
+#misc-second,
+#misc-third{
+  position: relative;
+  height: 35em;
+}
+
+#misc-first{
+  background-image: url("../images/hotelbackground.jpg");
+  background-size: cover;
+  background-position: right bottom;
+  width: 50%;
+  float: left;
+}
+#misc-second{
+  background-image: url("../images/buffetimage.jpg");
+  background-size: cover;
+  background-position: right bottom;
+  background-position: top center;
+  width: 50%;
+  float: right;
+  clear: right;
+}
+#misc-third{
+  background-image: url("../images/luaubackground.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: block;
+  float: left;
+}
+#misc-first h3,
+#misc-second h3,
+#misc-third h3{
+  position: absolute;
+  color: white;
+  left 50%;
+  top 50%;
+  transform translateX(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-size: 2em;
+  width: 100%;
+  line-height: 1em;
+  font-weight: normal;
+  text-shadow: 0em 0em 1em black;
+  max-width: 90%;
+}
+
+#misc-first span, #misc-second span, #misc-third span {
+  position: absolute;
+  left: 50%;
+  bottom: 10em;
+  left: ;
+  transform: translateX(-50%);
+  background: #FAFAFA;
+  padding: 1em 2em;
+  text-transform: capitalize;
+  border-radius: 2em;
+  color: #d96456;
+}
+@media(max-width:1060px){
+  #misc-first{
+    width: 100%;
+    float: none;
+    clear: initial;
+    display: block;
+  } 
+  #misc-second{
+    width: 100%;
+    float: none;
+    clear: initial;
+    display: block;
+  }
+}
