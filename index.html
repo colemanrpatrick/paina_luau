@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="js/jquery.lazy.min.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <title>Paina Luau</title>
+</head>
+<body>
+    <!-- ========== masthead ========== -->
+        <nav id="main-nav">
+            <ul>
+                <li class="nav-desktop">
+                    <a href="/reservations.htm">reservations</a>
+                    <span id="nested-nav">
+                        <a href="/about.htm">about</a>
+                        <div class="/drop-down" id="drop-down">
+                            <a href="/gallery.htm">gallery</a>
+                            <a href="/waikikibeachmariot.htm">waikiki beach marriott</a>
+                            <a href="/bookwithus.htm">why book with us?</a>
+                        </div>
+                    </span>
+                    <a href="/menu.htm">menu</a>
+                </li>
+                <li class="mobile-nav">
+                    <a href="tel:+18664829775" id="phone-mobile"><span class="material-symbols-outlined">call</span></a>
+                </li>
+                <li id="logo">
+                    <a href="/">
+                        <img src="images/pa'ina-luau.png" alt="">
+                    </a>
+                </li>
+                <li class="mobile-nav">
+                    <button class="menu-btn" id="menu-btn" name="button" onclick="idToggle('menu-btn','active');idToggle('mobile-nav','active')" type="button">
+                        <hr class="menu-btn-hr-1">
+                        <hr class="menu-btn-hr-2">
+                        <hr class="menu-btn-hr-3">
+                    </button>
+                </li>
+                <li class="nav-desktop">
+                    <a href="blog.htm">blog</a>
+                    <a href="contact.htm">contact</a>
+                    <a href="cart.htm">cart</a>
+                </li>
+            </ul>
+            <a href="tel:+18664829775" id="desktop-phone"><span class="material-symbols-outlined">call</span>1-866-482-9775</a>
+        </nav>
+        <nav id="mobile-nav">
+            <a href="/reservations.htm">reservations</a>
+            <a href="/gallery.htm">gallery</a>
+            <a href="/menu.htm">menu</a>
+            <a href="/about.htm">about</a>
+            <a href="/waikikibeachmariot.htm">waikiki beach marriott</a>
+            <a href="/bookwithus.htm">why book with us?</a>
+            <a href="/blog.htm">blog</a>
+            <a href="/contact.htm">contact</a>
+            <a href="/cart.htm">cart</a>
+        </nav>
+        <a href="/reservations.htm" id="reserve-now">reserve now!</a>
+    <!-- ========== hero ========== -->
+    <div id="hero">
+        <header>
+            <h1>A Celebration At The<br>Waikiki Beach Marriott</h1>
+            <hr>
+            <a href="">reserve your<br>seats today!</a>
+        </header>
+    </div>
+    <!-- ========== video ========== -->
+    <div id="video-tile">
+        <section>
+            <h2><span>The Lūʻau at</span><br>Waikīkī Beach Marriott<br><span>Resort & Spa</span></h2>
+            <iframe id="video-player" src="https://www.youtube.com/embed/4pHd69NwdyU" frameborder="0" allowfullscreen></iframe>
+            <!-- <iframe width="1680" height="937" src="https://www.youtube.com/embed/4pHd69NwdyU" title="1080 30 sec v2 with vocals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+        </section>
+    </div>
+    <div class="img-tile" id="img-tile-first"></div>
+    <!-- ========== reading ========== -->
+    <div class="img-tile" id="img-tile-second"></div>
+    <div id="reading-tile">
+        <section>
+            <h3>The Paina Waikiki<br>Luau Experience</h3>
+            <p>Everything that makes renowned Waikīkī a unique and exciting place is celebrated at Pāʻina Waikīkī! A unique dinner party lūʽau setting where the vibrant stories of Waikīkī’s legendary eras come to life through festive mele (songs), hula and the highest caliber of Polynesian performing arts.</p>
+            <button>learn more</button>
+        </section>
+    </div>
+    <!-- ========== luau packages ========== -->
+    <div id="luau-packages">
+        <a href="/reservations.htm" class="luau-package" id="show-only">
+            <header>show<br>only</header>
+            <hr>
+            <p class="package-schedule">seating open at<br>5:45 pm</p>
+            <ul>
+                <li>Hawaiian Revue</li> 
+                <li>Flower Lei Greeting</li> 
+                <li>General Seating</li> 
+                <li>Welcome Mai Tai</li>
+            </ul>
+            <p class="package-price">from<br><span>$125</span></p>
+        </a>
+        <a href="/reservations.htm" class="luau-package" id="general-admission">
+            <header>General<br>Admission</header>
+            <hr>
+            <p class="package-schedule">seating open at<br>5:30 pm</p>
+            <ul>
+                <li>Hawaiian Revue</li>
+                <li>Flower Lei Greeting</li> 
+                <li>General Seating</li>
+                <li>Hawaiian Lūʻau Buffet</li>
+                <li>Sliced Prime Rib</li> 
+                <li>Welcome Mai Tai</li>
+            </ul>
+            <p class="package-price">from<br><span>$170</span></p>
+        </a>
+        <a href="/reservations.htm" class="luau-package" id="vip-seating">
+            <header>VIP<br>Seating</header>
+            <hr>
+            <p class="package-schedule">
+                VIP Seating offers extraordinary<br>service and unrivaled entertainment.<br>Seating Opens at 5:15pm</p>
+            <ul>
+                <li>Hawaiian Revue</li>
+                <li>Flower Lei Greeting</li>
+                <li>Deluxe Seating</li>
+                <li>Hawaiian Lūʻau Buffet</li>
+                <li>Sliced Prime Rib</li>
+                <li>Welcome Mai Tai</li>
+                <li>2 Additional Drinks</li>
+            </ul>
+            <p class="package-price">from<br><span>$200</span></p>
+        </a>
+    </div>
+    <div id="book-packages">
+        <a href="/reservations.htm">book now!</a>
+    </div>
+    <!-- ========== seating ========== -->
+    <div id="seating">
+        <div id="what-to-expect">
+            <h3>What To Expect</h3>
+            <ul>
+                <li>Monday, Wednesday, Friday, Sunday</li>
+                <li>5pm-8pm</li>
+                <li>Lei Greeting</li>
+                <li>Welcome Mai Tai</li>
+                <li>Lei Making</li>
+                <li>Demonstrations & Temporary Polynesian Tattoos</li>
+                <li>Hawaiian Lūʻau Buffet & Sliced Prime Rib</li>
+                <li>Lūʻau Music & Dance</li>
+                <li>Performance</li>
+                <li>Ori Ori Tatou E -</li>
+                <li>Audience participation!</li>
+                <li>Fire Knife Finale</li>
+                <li>Meet the Cast &</li>
+                <li>Photo Opportunities</li>
+            </ul>
+        </div>
+        <div id="seating-tile">
+            <a href="images/seating-chart.png" target="blank_"> <img src="images/seating-chart.png" alt=""> </a>
+        </div>
+    </div>
+    <!-- ========== misc content ========== -->
+    <a href="/waikikibeachmariot.htm" id="misc-first">
+        <h3>Get To Know The<br>Waikiki Beach Marriot<br>Hotel & Spa</h3>
+        <span>learn more</span>
+    </a>
+    <a href="/menu.htm" id="misc-second">
+        <h3>Traditional<br>Waikiki Dining</h3>
+        <span>see menu</span>
+    </a>
+    <a href="/bookwithus.htm" id="misc-third">
+        <h3>Book With Us, & Get The<br>Best Discounts On Reservations</h3>
+        <span>learn more</span>
+    </a>
+    <!-- ========== footer ========== -->
+    <footer>
+        <ul id="first-footer-row">
+            <li><a href="/"><img src="images/pa'ina-luau.png" alt="" id="footer-logo-img"></a></li>
+            <li></li>
+            <li><a href="/"><img src="images/marriottlogo.png" alt=""></a></li>
+        </ul>
+        <ul id="second-footer-row">
+            <li>
+            <div id="footer-phone">
+                <a href="tel:+18664829775">
+                    <span class="material-symbols-outlined">call</span>
+                    <p>1-866-482-9775</p>
+                </a>
+            </div>
+            <div id="footer-map">
+                <a href="https://www.google.com/maps/place/Paina+Waikiki/@21.2732084,-157.8249746,17z/data=!3m2!4b1!5s0x7c007270b51920d5:0x428339b87b9698d6!4m6!3m5!1s0x7c0073df79d0095b:0x552416b74ffe7405!8m2!3d21.2732084!4d-157.8223997!16s%2Fg%2F11kp9nswqt?entry=ttu">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <p>2552 Kalākaua Avenue,<br>Honolulu, HI 96815, USA</p>
+                </a>
+            </div>
+            <div id="social-icons">
+                <a href=""><img src="images/twitter.svg" alt=""></a>
+                <a href=""><img src="images/facebook.svg" alt=""></a>
+                <a href=""><img src="images/instagram.svg" alt=""></a>
+                <a href=""><img src="images/youtube.svg" alt=""></a>
+            </div>
+            </li>
+            <li>
+                <a href="/reservations.htm">reservations</a>
+                <a href="/gallery.htm">gallery</a>
+                <a href="/menu.htm">menu</a>
+                <a href="/about.htm">about</a>
+                <a href="/waikikibeachmariot.htm">waikiki beach marriott</a>
+                <a href="/bookwithus.htm">why book with us?</a>
+                <a href="/blog.htm">blog</a>
+            </li>
+            <li>
+                <a href="/">home</a>
+                <a href="/cart.htm">cart</a>
+                <a href="/faq.htm">faq</a>
+                <a href="/sitemap.htm">sitemap</a>
+                <a href="/contact.htm">contact</a>
+            </li>
+        </ul>
+    </footer>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+    <script src="js/ie9Dexclude.js"></script>
+    <script src="js/toggle.js"></script>
+</html>
