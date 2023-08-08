@@ -33,6 +33,15 @@
   max-width: 22em;
   margin: 0 auto;
 }
+#hero h3 {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  max-width: 20em;
+  margin: 0 auto;
+  text-transform: capitalize;
+  margin-top: 1em;
+}
 #hero header a {
   color: white;
   font-weight: bold;
@@ -69,9 +78,9 @@
   height: 35em;
 }
 #img-tile-first{
-	background: url("../images/WBMPaina-9.jpg");
+	background: url("../images/luaubackground.jpg");
     background-size: cover;
-    background-position: top center;
+    background-position: center;
 	float: right;
 	clear: right;
 }
@@ -283,7 +292,7 @@
     color: white;
     width: 4em;
     text-align: center;
-    background-color: #3B1E6F;
+    background-color: #3B1E6FC4;
     font-size: 1.5em;
     padding-top: 0.75em;
     padding-bottom: 0.75em;
@@ -411,10 +420,10 @@
   clear: right;
 }
 #misc-third{
-  background-image: url("../images/luaubackground.jpg");
+  background-image: url("../images/WBMPaina-9.jpg");
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 50%;
   display: block;
   float: left;
 }
@@ -458,7 +467,7 @@
     clear: initial;
     display: block;
   } 
-  #misc-second{
+  #misc-second,#misc-third{
     width: 100%;
     float: none;
     clear: initial;
