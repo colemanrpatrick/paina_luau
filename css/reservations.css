@@ -24,6 +24,17 @@
   text-shadow: 0em 0em 1em black;
   text-transform: capitalize;
 }
+@media(max-width:1000px){
+  #hero {
+    padding: 10em 5em;
+    background-attachment: local;
+  }
+}
+@media(max-width:500px){
+  #hero {
+    padding: 8em 2em;
+  }
+}
 /*====================================*/
 #luau-packages {
   width: 100%;
@@ -161,12 +172,9 @@
   }
   #show-only{
     border-right: none;
-    border-bottom: 0.5em solid white;
-    border-top: 0.5em solid white;
   }
   #general-admission {
     border-right: none;
-    border-bottom: 0.5em solid white;
   }
   #vip-seating {
     border-right: none;
@@ -384,6 +392,7 @@ height: 0;
   padding-bottom: 0.25em;
   max-width: 6em;
 }
+
 @media(max-width: 650px){
   .spinner-container{
     max-width: 2.5em;
@@ -401,4 +410,7 @@ height: 0;
 }
 #reservation-controls {
 	text-align: center;
+}
+#reserve-now{
+  display: none;
 }
