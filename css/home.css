@@ -287,7 +287,7 @@
   .luau-package::after{
     content: "book now";
     position: absolute;
-    left: 1em;
+    right: 1em;
     bottom: 1em;
     color: white;
     width: 4em;
@@ -394,6 +394,10 @@
   #seating-tile{
     width: 100%;
     display: block;
+    transform: scaleY(-1);
+  }
+  #seating{
+    transform: scaleY(-1);
   }
 }
 #misc-first,
@@ -432,9 +436,9 @@
 #misc-third h3{
   position: absolute;
   color: white;
-  left 50%;
-  top 50%;
-  transform translateX(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%,-50%);
   position: absolute;
   left: 50%;
   top: 50%;
