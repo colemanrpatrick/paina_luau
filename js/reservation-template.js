@@ -1,5 +1,8 @@
 //_____________________________________________________________
 //___________________| Reservation UI V2|______________________
+
+//to do: simplify create pages on reservation-template
+
 //_____________________________________________________________
 
 const reservationWindow = document.getElementById("reservation-window");
@@ -341,7 +344,6 @@ let multiInputValidate = function (elem) {
     },
     0
   );
-
   if (inputValuesCombine > 0) {
     return true;
   } else {
@@ -562,5 +564,4 @@ let showEmailPhoneTemplate = (page) => {
 //helper functions
 //________________________________________________________
 //________________________________________________________
-
 
