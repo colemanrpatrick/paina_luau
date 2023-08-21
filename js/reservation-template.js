@@ -282,14 +282,6 @@ let createPrices = (page,priceGroupArg) => {
 //________________________________________________________
 //________________________________________________________
 
-// $minusButton.addEventListener("click",() => {
-//   numIncrement( $minusButton.nextElementSibling.getAttribute("id"), false);
-// });
-// $plusButton.addEventListener("click",() => {
-//   console.log($plusButton.prevElementSibling.getAttribute("id"));
-//   numIncrement($plusButton.prevElementSibling.getAttribute("id"), true);
-// });
-
 let showPrices = (page,dataPrices,priceGroup) => {
   Object.entries(dataPrices).forEach(entry => {
     const [key, value] = entry;
@@ -334,6 +326,28 @@ let $spinnerEvents = () => {
     };
 };
 
+
+let multiInputValidate = function (elem) {
+  let $inputs = document.getElementsByClassName(elem);
+  let $inputsValueTotal = [];
+
+  for (let i = 0; i < $inputs.length; i++) {
+    $inputsValueTotal.push($inputs[i].value);
+  }
+
+  let inputValuesCombine = $inputsValueTotal.reduce(
+    (accumulator, currentValue) => {
+      return accumulator + currentValue;
+    },
+    0
+  );
+
+  if (inputValuesCombine > 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 //________________________________________________________
 //________________________________________________________
@@ -478,12 +492,13 @@ let addCollectorEvent = (id) => {
   };
 
 };
+
 //________________________________________________________
 //________________________________________________________
 //create email/phone collector
 //________________________________________________________
 //________________________________________________________
-let createEmailPhoneCollectors = (page) => {
+let createEmailPhoneCollectors = ($email,$phone) => {
 
   //=========== create email ===========//
   let emailCollector = document.createElement("DIV");
@@ -502,7 +517,7 @@ let createEmailPhoneCollectors = (page) => {
   phoneCollector.setAttribute("id", "phone-collector");
 
   let phone = document.createElement("INPUT");
-  phone.setAttribute("type", "phone");
+  phone.setAttribute("type", "text");
   phone.setAttribute("id", "phone");
   phone.setAttribute("placeholder", "phone");
   phone.setAttribute("name", "phone");
@@ -516,7 +531,30 @@ let createEmailPhoneCollectors = (page) => {
   phoneCollector.appendChild(phoneLabel);
   phoneCollector.appendChild(phone);
 
-  
+  if($email == true && $phone == false){
+    return emailCollector;
+  }else if($email == false && $phone == true){
+    return phoneCollector;
+  }else{
+    return false;
+  }
+};
+
+let showEmailPhoneTemplate = (page) => {
+  let collectorContainer = document.createElement("collector-container");
+  collectorContainer.setAttribute("class","collector-container");
+  if(cartData.Customer.Email.length <= 0){
+    collectorContainer.appendChild(createEmailPhoneCollectors(true,false));
+    document.getElementById(page).appendChild(collectorContainer);
+  }else if(
+    cartData.Customer.Email.length > 0 &&
+    cartData.Customer.MobilePhone.length <= 0
+  ){
+    collectorContainer.appendChild(createEmailPhoneCollectors(false,true));
+    document.getElementById(page).appendChild(collectorContainer);
+  }else{
+      console.log("do nothing ");
+  };
 };
 
 //________________________________________________________

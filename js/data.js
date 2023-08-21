@@ -1544,5 +1544,5 @@ let cartData = {
       Hidden: true,
     },
   ],
-  Customer: { Email: "", MobilePhone: "" },
+  Customer: { Email: "patrick@hawaiidiscount.com", MobilePhone: "" },
 };

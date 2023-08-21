@@ -18,6 +18,7 @@ let createShowOnlyPage2 = () => {
     createReservationPage("page3");
     createTitle("page3",cartData.Groupings[1].Name);
     showCollectors("page3",cartData.Collectors);
+    showEmailPhoneTemplate("page3");
  }
 
 
@@ -36,6 +37,7 @@ let createGeneralAdmissionPage2 = () => {
     createReservationPage("page3");
     createTitle("page3",cartData.Groupings[2].Name);
     showCollectors("page3",cartData.Collectors);
+    showEmailPhoneTemplate("page3");
  }
 
  let createVipAdmissionPage1 = () => {
@@ -53,6 +55,7 @@ let createVipAdmissionPage2 = () => {
     createReservationPage("page3");
     createTitle("page3",cartData.Groupings[0].Name);
     showCollectors("page3",cartData.Collectors);
+    showEmailPhoneTemplate("page3");
  }
 //________________________________________________________
 //________________________________________________________
@@ -70,15 +73,21 @@ let displayPage1 = () => {
 };
 let displayPage2 = () => {
     hideReservationPages("reservation-page","page2");
+
+    $spinnerEvents();
+
     document.getElementById("reservation-controls").appendChild(createButton("prev-2","back","prev-btn"));
     document.getElementById("prev-2").addEventListener("click",function(){
         displayPage1();
     },false);
     document.getElementById("reservation-controls").appendChild(createButton("next-2","continue","next-btn"));
     document.getElementById("next-2").addEventListener("click",function(){
-        displayPage3();
+        if(multiInputValidate("price-control")){
+            displayPage3();
+        }else{
+            alert("please select a package");
+        };
     },false);
-    $spinnerEvents();
 };
 let displayPage3 = () => {
     hideReservationPages("reservation-page","page3");

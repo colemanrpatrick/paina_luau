@@ -246,7 +246,7 @@
 .package-title {
   font-family: 'Bodoni Moda', serif;
   text-transform: capitalize;
-  color: #333;
+  color: #9d3124;
   line-height: 1em;
   padding-bottom: 0.75em;
 }
@@ -347,7 +347,8 @@ height: 0;
   font-size: ;
   color: #333;
 }
-.collector-container input[type=text] {
+.collector-container input[type=text],
+.collector-container input[type=email]{
   padding: 1em;
   width: 100%;
   max-width: 25em;
@@ -374,11 +375,12 @@ height: 0;
   display: inline-block;
   border: 0;
   padding: 0.25em 0.2em;
+  text-align: center;
 }
 
 .minus-button,
 .plus-button{
-  color: white;
+  color: #C08092;
   background: transparent;
   border: 0;
   border-radius: 5em;
@@ -386,11 +388,11 @@ height: 0;
   padding: 0.25em;
 }
 .spinner-container {
-  background: #F77956;
   border-radius: 5em;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   max-width: 6em;
+  background: white;
 }
 
 @media(max-width: 650px){
