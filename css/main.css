@@ -400,3 +400,172 @@ footer {
 		border-bottom: none;
 	}
 }
+
+#hero {
+	padding: 12em;
+	margin-top: 6em;
+	background-size: cover !important;
+	background-position: center !important;
+	background-attachment: fixed !important;
+  }
+  #hero h1 {
+	color: white;
+	font-weight: lighter;
+	text-shadow: 0em 0em 1em black;
+	line-height: 1em;
+	margin: 1em 0em;
+	text-transform: capitalize;
+  }
+  #hero hr {
+	border: 1px solid #ffffff59;
+  }
+  #hero h3 {
+	font-family: "Montserrat";
+	color: white;
+	margin: 1em;
+	text-shadow: 0em 0em 1em black;
+	text-transform: capitalize;
+  }
+  @media(max-width:1000px){
+	#hero {
+	  padding: 10em 5em;
+	  background-attachment: local !important;
+	}
+  }
+  @media(max-width:500px){
+	#hero {
+	  padding: 8em 2em;
+	}
+  }
+  #book-here header {
+	font-size: 2em;
+	font-family: 'Bodoni Moda', serif;
+	line-height: 1em;
+	padding: 0.5em;
+	color: #9d3124;
+  }
+  #book-here p {
+	line-height: 2em;
+	padding: 2em;
+  }
+  #book-here {
+	padding: 2em;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #FAFAFA;
+  }
+
+#about-marriot p {
+  line-height: 2.5em;
+  color: #333;
+  margin: 3em auto;
+}
+#about-marriot {
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+#about-marriot span {
+  font-size: 2em;
+  float: left;
+  color: #d2755c;
+  font-family: 'Bodoni Moda', serif;
+  padding-right: 0.25em;
+  line-height: 1em;
+}
+
+/*======= blog styling =======*/
+
+.blog-preview {
+	display: inline-block;
+	border-radius: 1em;
+	background: white;
+	width: 100%;
+	margin-bottom: 1em;
+}
+.blog-preview header {
+	overflow: hidden;
+	position: relative;
+	margin-top: 0 !important;
+	height: 12.5em;
+	z-index: 1;
+	border-top-left-radius: 0.9em;
+	border-top-right-radius: 0.9em;
+	background: black;
+}
+.blog-preview header img {
+	position: absolute;
+	width: 100%;
+	left: 50%;
+	top: 50%;
+	z-index: 4;
+	transform: translate(-50%, -50%);
+}
+#blog-container {
+	text-align: center;
+	background: #FDC6BE;
+}
+#blog-body {
+	text-align: center;
+	column-count: 2;
+	max-width: 1200px;
+	margin: 1em auto;
+	padding: 1em;
+}
+#blog-hero h2 {
+	margin-bottom: 1em;
+}
+.blog-preview h3 {
+	font-size: 1.5em;
+	margin: 0;
+	padding: 1em;
+	width: 100%;
+	text-align: center;
+	color: #D9321E;
+	line-height: 1em;
+}
+.blog-preview a {
+	margin-bottom: 1em;
+	display: inline-block;
+}
+.blog-preview p {
+	color: #333;
+}
+.date, .time {
+	display: inline-block;
+	color: #305661;
+	margin: 0.5em;
+}
+.more-blog {
+	background-color: black;
+	opacity: 0.7;
+	width: 191px;
+	border-radius: 12px;
+	margin: 1em auto;
+	font-family: kon-tiki-aloha-jf, sans-serif;
+	font-weight: 500;
+	font-size: 22pt;
+	border: solid 1px #61b3c5;
+	padding: 4px 12px 4px 12px;
+	text-shadow: 3px 3px 4px #2e1405a3;
+	text-decoration: none;
+	display: inline-block;
+}
+@media(max-width: 1000px) {
+	.blog-preview header img {
+		width: auto;
+		height: 100%;
+	}
+}
+@media(max-width:600px) {
+	#blog-body {
+		text-align: center;
+		column-count: 1;
+	}
+	.blog-preview header img {
+		width: 100%;
+		height: auto;
+	}
+}
