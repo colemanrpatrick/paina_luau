@@ -65,6 +65,7 @@ let createButton = ($id,$text,$class) => {
   $button.innerHTML = $text;
   $button.setAttribute("id", $id);
   $button.setAttribute("class",$class);
+  $button.setAttribute("type","button");
   return $button;
 };
 
@@ -110,14 +111,14 @@ const getTodaysDate = () => {
   return currentDate;
 };
 
-let createCalendar = (page) => {
+let createCalendar = (page,$name) => {
   let dateInput = document.createElement("input");
   let datePicker = document.createElement("div");
 
   dateInput.setAttribute("type", "text");
+  dateInput.setAttribute("name", $name);
   dateInput.setAttribute("id", "dateInput");
-  //   dateInput.setAttribute("name", cartData.Collectors[0].ControlName);
-  //   dateInput.setAttribute("value", cartData.Collectors[0].Value);
+
   datePicker.setAttribute("id", "datepicker");
 
   document.getElementById(page).appendChild(dateInput);
@@ -130,8 +131,12 @@ let createCalendar = (page) => {
 //________________________________________________________
 //________________________________________________________
 
-let showCalendar = (page, disabledDates) => {
-  createCalendar(page);
+let showCalendar = (page, $collector) => {
+
+  let disabledDates = $collector.Availabilities[0].ClosedDates;
+  let $name = $collector.Collectors[0].ControlName;
+
+  createCalendar(page,$name);
 
   let dateToday = new Date();
   disabledDates = JSON.parse(disabledDates);
@@ -145,9 +150,15 @@ let showCalendar = (page, disabledDates) => {
       return [disabledDates.indexOf(disabledDatesString) == -1];
     },
   });
-  if (dateInput.value == null || dateInput.value == undefined) {
-    dateInput.value = "";
-  }
+
+
+  if ($collector.Collectors[0].Value !== null) {
+    $("#datepicker").datepicker("setDate",$collector.Collectors[0].Value);
+    $("#dateInput").prop("value", $collector.Collectors[0].Value);
+  }else{
+     $(".ui-datepicker-current-day").removeClass("ui-datepicker-current-day");
+     $("#datepicker").val("");
+  };
 
   /*====== datepicker / date input events ======*/
 
@@ -160,19 +171,8 @@ let showCalendar = (page, disabledDates) => {
     }
   });
 
-  /*========== jQuery UI datepicker functions ==========*/
 
-  if (
-    typeof $("#dateInput") !== undefined &&
-    typeof $("#datepicker") !== undefined
-  ) {
-    if ($("#dateInput").val().length > 0) {
-      $("#datepicker").datepicker("setDate", $("#dateInput").val());
-    } else {
-      $(".ui-datepicker-current-day").removeClass("ui-datepicker-current-day");
-      $("#datepicker").val("");
-    }
-  }
+
 };
 
 //________________________________________________________
@@ -207,17 +207,17 @@ function numIncrement(numberInput, increase) {
 
 };
 
-let spinnerFunction = (elem) => {
+let spinnerFunction = (elem,$value) => {
   console.log(this.id);
 };
 
-let createSpinners = (controlName) =>{
+let createSpinners = (controlName,$value) =>{
   let $priceInput = document.createElement("input");
   $priceInput.setAttribute("type","text"); 
   $priceInput.setAttribute("id",controlName);
   $priceInput.setAttribute("name",controlName);
   $priceInput.setAttribute("class","price-control");
-  $priceInput.value = 0;
+  $priceInput.value = $value;
 
   let $spinnerTemplate = document.createElement("div");
   $spinnerTemplate.setAttribute("class","spinner-container");
@@ -225,8 +225,14 @@ let createSpinners = (controlName) =>{
   $spinner = document.createElement("input");
   $spinner.setAttribute("type","text");
   $spinner.setAttribute("class","spinner");
-  $spinner.setAttribute("id","spinner-"+controlName)
-  $spinner.setAttribute("placeholder","0");
+  $spinner.setAttribute("id","spinner-"+controlName);
+
+  if ($priceInput.value > 0){
+    $spinner.setAttribute("value",$priceInput.value);
+  }else{
+    $spinner.setAttribute("placeholder","0");
+  };
+
   $spinner.setAttribute("readonly","true");
 
   $minusButton = createButton("spinner-minus-"+controlName,"<span class='material-symbols-outlined'>remove</span>","minus-button");
@@ -273,7 +279,7 @@ let createPrices = (page,priceGroupArg) => {
 
   document.getElementById("" + page + "").appendChild($priceContainer);
 
-  $createNewLiElement($priceContainer,createSpinners(controlName));
+  $createNewLiElement($priceContainer,createSpinners(controlName,priceGroupArg[4]));
   $createNewLiElement($priceContainer,$description);
   $createNewLiElement($priceContainer,$priceList);
   
@@ -292,7 +298,8 @@ let showPrices = (page,dataPrices,priceGroup) => {
     value.ControlName,
     value.Description,
     value.ListPrice,
-    value.Saleprice
+    value.Saleprice,
+    value.Quantity
     ];
     if(value.Grouping == priceGroup){
       createPrices(page,priceGroupArg);
@@ -328,7 +335,6 @@ let $spinnerEvents = () => {
       });
     };
 };
-
 
 let multiInputValidate = function (elem) {
   let $inputs = document.getElementsByClassName(elem);
@@ -367,27 +373,37 @@ let createCollectors = (page,$collector) => {
     switch ($dataType) {
 
       case 0:
-        //console.log("input type text : ", $collector);
 
         let $textLabel = document.createElement("label");
         let $textInput = document.createElement("input");
 
-        $textLabel.innerHTML = $collector.Name;
+        if($collector.Value === null){
+          $textInput.value = "";
+        }else{
+          $textInput.value = $collector.Value;
+        };
+
+        if($collector.DisplayAlias !== null){
+          $textLabel.innerHTML = $collector.DisplayAlias;
+          $textInput.setAttribute("placeholder",$collector.DisplayAlias);
+        }else{
+          $textLabel.innerHTML = $collector.Name;
+          $textInput.setAttribute("placeholder",$collector.Name);
+        }
+        
         $textLabel.setAttribute("for",$collector.ControlName);
         $textInput.setAttribute("type","text");
         $textInput.setAttribute("id",$collector.ControlName);
         $textInput.setAttribute("name",$collector.ControlName);
-        $textInput.setAttribute("placeholder",$collector.Name);
 
         $collectorContainer.appendChild($textLabel);
         $collectorContainer.appendChild($textInput);
 
         document.getElementById("" + page + "").appendChild($collectorContainer);
+
         break;
 
       case 1:
-
-        //console.log("input type bit", $collector);
 
         let $bitLabel = document.createElement("label");
         $bitLabel.innerHTML = $collector.Name;
@@ -396,6 +412,12 @@ let createCollectors = (page,$collector) => {
         $bitInput.setAttribute("type", "checkbox");
         $bitInput.setAttribute("name", $collector.ControlName);
         $bitInput.setAttribute("Id", $collector.ControlName);
+
+        if($collector.Value === null){
+          $bitInput.checked = false;
+        }else{
+          $bitInput.checked = true;
+        };
 
         $collectorContainer.appendChild($bitLabel);
         $collectorContainer.appendChild($bitInput);
@@ -406,15 +428,14 @@ let createCollectors = (page,$collector) => {
 
       case 7:
 
-        //console.log("select", $collector);
-
         let $selectCollector = document.createElement("SELECT");
         let $selectLabel = document.createElement("Label");
 
         $selectLabel.setAttribute("for",$collector.ControlName);
         $selectLabel.innerHTML = $collector.Name; 
 
-        $selectCollector.setAttribute("ID", $collector.ControlName);
+        $selectCollector.setAttribute("name", $collector.ControlName);
+        $selectCollector.setAttribute("id", $collector.ControlName);
 
         let $selectCollectorList = $collector.ListMember.ListMembers;
 
@@ -427,12 +448,17 @@ let createCollectors = (page,$collector) => {
             $selectCollectorOption.innerHTML = element.Shortcode;
             $selectCollectorOption.setAttribute("value", "" + element.ID + "");
             $selectCollector.appendChild($selectCollectorOption);
-
         });
 
         $collectorContainer.appendChild($selectLabel);
         $collectorContainer.appendChild($selectCollector);
         document.getElementById("" + page + "").appendChild($collectorContainer);
+
+        $selectCollector.addEventListener("change",() => {
+           let selectOption = $selectCollector.options[$selectCollector.selectedIndex];
+           let selectOptionId = selectOption.id;
+           $selectCollector.value = selectOptionId;
+        });
 
         break;
 
@@ -458,7 +484,6 @@ let showCollectors = (page,$collectors) => {
     const [key,value] = entry;
     createCollectors(page,value);
   });
-
 };
 
 //________________________________________________________
@@ -467,11 +492,10 @@ let showCollectors = (page,$collectors) => {
 //________________________________________________________
 //________________________________________________________
 
-let addCollectorEvent = (id) => {
+let collectorValidate = ($id,$collector) => {
 
-  let $element = document.getElementById(id);
-
-  let $dataType = $element.ApplicationDataType;
+  let $element = document.getElementById($id);
+  let $dataType = $collector.ApplicationDataType;
 
   switch ($dataType) {
 
@@ -482,6 +506,14 @@ let addCollectorEvent = (id) => {
     case 1:
 
       break;
+
+    case 2: 
+
+      if($element.value.length <= 0 ){
+        return false;
+      }else{
+        return true;
+      };
 
     case 7:
 
@@ -565,3 +597,30 @@ let showEmailPhoneTemplate = (page) => {
 //________________________________________________________
 //________________________________________________________
 
+let checkValue = ($id) => {
+  $element = document.getElementById($id);
+  alert($id+": "+$element.value);
+}
+
+let submitButton = (page) => {
+
+    $hiddenInput = document.createElement("input");
+    $hiddenInput.setAttribute("type","hidden");
+    $hiddenInput.setAttribute("name","cart");
+    $hiddenInput.setAttribute("value","true");
+
+    $submitButton = document.createElement("button");
+    $submitButton.setAttribute("type","submit");
+    $submitButton.setAttribute("value","Book Now");
+    $submitButton.setAttribute("id","addToCartSubmit");
+    $submitButton.setAttribute("name","submit");
+    $submitButton.innerHTML = "Add To Cart";
+
+    document.getElementById(page).appendChild($hiddenInput);
+    document.getElementById(page).appendChild($submitButton);
+    
+    $submitButton.addEventListener("click",function(){
+      // checkValue("dateInput");
+      //checkValue("SelectYourOahuHotel_2341");
+    });
+};

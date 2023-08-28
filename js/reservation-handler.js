@@ -6,7 +6,7 @@
 let createShowOnlyPage1 = () => {
     createReservationPage("page1");
     createTitle("page1",cartData.Groupings[1].Name);
-    showCalendar("page1",cartData.Availabilities[0].ClosedDates);
+    showCalendar("page1",cartData);
 };
 let createShowOnlyPage2 = () => {
     createReservationPage("page2");
@@ -24,7 +24,7 @@ let createShowOnlyPage2 = () => {
  let createGeneralAdmissionPage1 = () => {
     createReservationPage("page1");
     createTitle("page1",cartData.Groupings[2].Name);
-    showCalendar("page1",cartData.Availabilities[0].ClosedDates);
+    showCalendar("page1",cartData);
 };
 let createGeneralAdmissionPage2 = () => {
     createReservationPage("page2");
@@ -42,7 +42,7 @@ let createGeneralAdmissionPage2 = () => {
  let createVipAdmissionPage1 = () => {
     createReservationPage("page1");
     createTitle("page1",cartData.Groupings[0].Name);
-    showCalendar("page1",cartData.Availabilities[0].ClosedDates);
+    showCalendar("page1",cartData);
 };
 let createVipAdmissionPage2 = () => {
     createReservationPage("page2");
@@ -68,14 +68,18 @@ let displayPage1 = () => {
     hideReservationPages("reservation-page","page1");
     document.getElementById("reservation-controls").appendChild(createButton("next-1","continue","next-btn"));
     document.getElementById("next-1").addEventListener("click",function(){
-        displayPage2();
+        if (collectorValidate("dateInput",cartData.Collectors[0])){
+            displayPage2();
+        } else {
+            alert("please select a date for activity");
+        };    
     },false);
 };
 let displayPage2 = () => {
     hideReservationPages("reservation-page","page2");
     document.getElementById("reservation-controls").appendChild(createButton("prev-2","back","prev-btn"));
     document.getElementById("prev-2").addEventListener("click",function(){
-        displayPage1();
+            displayPage1();
     },false);
     document.getElementById("reservation-controls").appendChild(createButton("next-2","continue","next-btn"));
     document.getElementById("next-2").addEventListener("click",function(){
@@ -92,6 +96,7 @@ let displayPage3 = () => {
     document.getElementById("prev-3").addEventListener("click",function(){
         displayPage2();
     },false);
+    submitButton("reservation-controls");
 };
 
 //________________________________________________________
