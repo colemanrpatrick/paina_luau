@@ -227,7 +227,7 @@ let createSpinners = (controlName,$value) =>{
   $spinner.setAttribute("class","spinner");
   $spinner.setAttribute("id","spinner-"+controlName);
 
-  if ($priceInput.value > 0){
+  if (!$priceInput.value == null && !$priceInput.value == 0 ){
     $spinner.setAttribute("value",$priceInput.value);
   }else{
     $spinner.setAttribute("placeholder","0");
